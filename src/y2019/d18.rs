@@ -14,7 +14,7 @@ inventory::submit! {
 pub fn solve(input: &str) -> (i32, i32) {
     let _lines: Vec<&str> = input.trim().lines().map(str::trim).collect();
 
-    return (0, 0);
+    (0, 0)
 }
 
 pub fn main() {

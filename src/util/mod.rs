@@ -92,7 +92,7 @@ pub fn ocr(drawing: String) -> String {
         index += if *letter == "Y" { 5 } else { 4 };
     }
 
-    return result;
+    result
 }
 
 // #[macro_export]

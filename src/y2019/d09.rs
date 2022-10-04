@@ -20,7 +20,7 @@ pub fn solve(input: &str) -> (i64, i64) {
     intcode.run();
     let part2 = *intcode.get_outputs().last().unwrap();
 
-    return (part1, part2);
+    (part1, part2)
 }
 
 pub fn main() {

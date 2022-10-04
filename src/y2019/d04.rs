@@ -31,7 +31,7 @@ fn check(n: i32) -> (bool, bool) {
     }
     double |= count == 2;
 
-    return (repeat, double);
+    (repeat, double)
 }
 
 pub fn solve(input: &str) -> (i32, i32) {
@@ -53,7 +53,7 @@ pub fn solve(input: &str) -> (i32, i32) {
         }
     }
 
-    return (part1, part2);
+    (part1, part2)
 }
 
 pub fn main() {

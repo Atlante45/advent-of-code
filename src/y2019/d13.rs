@@ -142,7 +142,7 @@ pub fn solve(input: &str) -> (i32, i32) {
         intcode.clear_outputs();
     }
 
-    return (part1 as i32, score as i32);
+    (part1 as i32, score as i32)
 }
 
 pub fn main() {

@@ -26,7 +26,7 @@ fn intersection((v1, v2): &Segment, (h1, h2): &Segment) -> Option<Point> {
     {
         return Some(Point::new(v1.x, h1.y));
     }
-    return None;
+    None
 }
 
 pub fn solve(input: &str) -> (i32, i32) {
@@ -93,7 +93,7 @@ pub fn solve(input: &str) -> (i32, i32) {
         dist += d;
     }
 
-    return (part1, part2);
+    (part1, part2)
 }
 
 pub fn main() {

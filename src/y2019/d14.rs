@@ -16,10 +16,10 @@ struct Compound {
 impl Compound {
     fn parse(s: &str) -> Compound {
         let mut parts = s.trim().split(' ');
-        return Compound {
+        Compound {
             quantity: parts.next().unwrap().parse().unwrap(),
             name: String::from(parts.next().unwrap()),
-        };
+        }
     }
 }
 
@@ -40,10 +40,10 @@ impl Reaction {
             .map(Compound::parse)
             .collect::<Vec<_>>();
         let out = Compound::parse(parts.next().unwrap());
-        return Reaction {
+        Reaction {
             inputs: inp,
             output: out,
-        };
+        }
     }
 }
 
@@ -90,7 +90,7 @@ fn ores_required(reactions: &HashMap<String, Reaction>, quantity: i64) -> i64 {
         compounds.remove(name);
     }
 
-    return ores;
+    ores
 }
 
 pub fn solve(input: &str) -> (i32, i32) {
@@ -123,7 +123,7 @@ pub fn solve(input: &str) -> (i32, i32) {
         }
     }
 
-    return (part1 as i32, fuel as i32);
+    (part1 as i32, fuel as i32)
 }
 
 pub fn main() {
