@@ -16,7 +16,7 @@ pub mod y2019 {
 struct Opt {
     #[structopt(default_value = "2019")]
     year: u32,
-    #[structopt(default_value = "17")]
+    #[structopt(default_value = "18")]
     day: u32,
     #[structopt(short, long)]
     all: bool,
