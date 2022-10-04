@@ -2,9 +2,9 @@ use crate::util::Day;
 
 use super::intcode::IntCode;
 
-const INPUT: &'static str = include_str!("input/d09.in");
+const INPUT: &str = include_str!("input/d09.in");
 inventory::submit! {
-    Day {year: 2019, day: 9, main: main}
+    Day {year: 2019, day: 9, main}
 }
 
 pub fn solve(input: &str) -> (i64, i64) {
@@ -15,7 +15,7 @@ pub fn solve(input: &str) -> (i64, i64) {
     intcode.run();
     let part1 = *intcode.get_outputs().last().unwrap();
 
-    let mut intcode = IntCode::load(program.clone());
+    let mut intcode = IntCode::load(program);
     intcode.set_inputs(vec![2]);
     intcode.run();
     let part2 = *intcode.get_outputs().last().unwrap();
@@ -26,7 +26,8 @@ pub fn solve(input: &str) -> (i64, i64) {
 pub fn main() {
     let (part1, part2) = solve(INPUT);
 
-    println!("Problem {}:", file!());
+    let file = file!();
+    println!("Problem {file}:");
     println!("    part 1: {part1}");
     println!("    part 2: {part2}");
 }

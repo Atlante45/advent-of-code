@@ -80,6 +80,7 @@ impl IntCode {
         }
         return self.memory[index];
     }
+
     fn _set(&mut self, index: usize, value: Value) {
         if index >= self.memory.len() {
             self.memory.resize(index + 1, 0);

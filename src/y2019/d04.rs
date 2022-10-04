@@ -1,8 +1,8 @@
 use crate::util::Day;
 
-const INPUT: &'static str = include_str!("input/d04.in");
+const INPUT: &str = include_str!("input/d04.in");
 inventory::submit! {
-    Day {year: 2019, day: 4, main: main}
+    Day {year: 2019, day: 4, main}
 }
 
 fn check(n: i32) -> (bool, bool) {
@@ -14,7 +14,7 @@ fn check(n: i32) -> (bool, bool) {
     let mut count = 1;
     while digits > 0 {
         let new_digit = digits % 10;
-        digits = digits / 10;
+        digits /= 10;
 
         if new_digit > last_digit {
             return (false, false);
@@ -59,7 +59,8 @@ pub fn solve(input: &str) -> (i32, i32) {
 pub fn main() {
     let (part1, part2) = solve(INPUT);
 
-    println!("Problem {}:", file!());
+    let file = file!();
+    println!("Problem {file}:");
     println!("    part 1: {part1}");
     println!("    part 2: {part2}");
 }

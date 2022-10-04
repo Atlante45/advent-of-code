@@ -2,9 +2,9 @@ use std::{cmp::min, collections::HashMap, fmt::Debug};
 
 use crate::util::Day;
 
-const INPUT: &'static str = include_str!("input/d14.in");
+const INPUT: &str = include_str!("input/d14.in");
 inventory::submit! {
-    Day {year: 2019, day: 14, main: main}
+    Day {year: 2019, day: 14, main}
 }
 
 #[derive(Debug)]
@@ -15,7 +15,7 @@ struct Compound {
 
 impl Compound {
     fn parse(s: &str) -> Compound {
-        let mut parts = s.trim().split(" ");
+        let mut parts = s.trim().split(' ');
         return Compound {
             quantity: parts.next().unwrap().parse().unwrap(),
             name: String::from(parts.next().unwrap()),
@@ -37,7 +37,7 @@ impl Reaction {
             .unwrap()
             .trim()
             .split(", ")
-            .map(|i| Compound::parse(i))
+            .map(Compound::parse)
             .collect::<Vec<_>>();
         let out = Compound::parse(parts.next().unwrap());
         return Reaction {
@@ -51,7 +51,7 @@ fn ores_required(reactions: &HashMap<String, Reaction>, quantity: i64) -> i64 {
     let mut ores = 0;
     let mut leftovers = HashMap::new();
     let mut compounds = HashMap::from([("FUEL", quantity)]);
-    while compounds.len() > 0 {
+    while !compounds.is_empty() {
         let (&name, quantity) = compounds.iter().next().unwrap();
         let mut quantity = *quantity;
 
@@ -129,7 +129,8 @@ pub fn solve(input: &str) -> (i32, i32) {
 pub fn main() {
     let (part1, part2) = solve(INPUT);
 
-    println!("Problem {}:", file!());
+    let file = file!();
+    println!("Problem {file}:");
     println!("    part 1: {part1}");
     println!("    part 2: {part2}");
 }
