@@ -7,9 +7,9 @@ use num::integer::gcd;
 
 use crate::util::Day;
 
-const INPUT: &'static str = include_str!("input/d10.in");
+const INPUT: &str = include_str!("input/d10.in");
 inventory::submit! {
-    Day {year: 2019, day: 10, main: main}
+    Day {year: 2019, day: 10, main}
 }
 
 fn count(map: &Vec<Vec<char>>, x: usize, y: usize) -> i32 {
@@ -129,7 +129,8 @@ pub fn solve(input: &str) -> (i32, i32) {
 pub fn main() {
     let (part1, part2) = solve(INPUT);
 
-    println!("Problem {}:", file!());
+    let file = file!();
+    println!("Problem {file}:");
     println!("    part 1: {part1}");
     println!("    part 2: {part2}");
 }

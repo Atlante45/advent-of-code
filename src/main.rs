@@ -27,7 +27,6 @@ fn main() {
     let mut days: HashMap<u32, HashMap<u32, fn()>> = HashMap::new();
 
     for day in inventory::iter::<Day> {
-        let day: &Day = &*day;
         days.entry(day.year).or_default().insert(day.day, day.main);
     }
 

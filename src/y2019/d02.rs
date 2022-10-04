@@ -1,9 +1,9 @@
 use super::intcode::*;
 use crate::util::Day;
 
-const INPUT: &'static str = include_str!("input/d02.in");
+const INPUT: &str = include_str!("input/d02.in");
 inventory::submit! {
-    Day {year: 2019, day: 2, main: main}
+    Day {year: 2019, day: 2, main}
 }
 
 pub fn solve(input: &str) -> (i32, i32) {
@@ -32,7 +32,8 @@ pub fn solve(input: &str) -> (i32, i32) {
 pub fn main() {
     let (part1, part2) = solve(INPUT);
 
-    println!("Problem {}:", file!());
+    let file = file!();
+    println!("Problem {file}:");
     println!("    part 1: {part1}");
     println!("    part 2: {part2}");
 }

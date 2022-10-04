@@ -8,9 +8,9 @@ enum M {}
 type Point = Point2D<i32, M>;
 type Vector = Vector2D<i32, M>;
 
-const INPUT: &'static str = include_str!("input/d11.in");
+const INPUT: &str = include_str!("input/d11.in");
 inventory::submit! {
-    Day {year: 2019, day: 11, main: main}
+    Day {year: 2019, day: 11, main}
 }
 
 pub fn solve(input: &str) -> (i32, String) {
@@ -67,7 +67,8 @@ pub fn solve(input: &str) -> (i32, String) {
 pub fn main() {
     let (part1, part2) = solve(INPUT);
 
-    println!("Problem {}:", file!());
+    let file = file!();
+    println!("Problem {file}:");
     println!("    part 1: {part1}");
     println!("    part 2: {part2}");
 }

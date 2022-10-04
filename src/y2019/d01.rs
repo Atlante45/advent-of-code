@@ -1,8 +1,8 @@
 use crate::util::Day;
 
-const INPUT: &'static str = include_str!("input/d01.in");
+const INPUT: &str = include_str!("input/d01.in");
 inventory::submit! {
-    Day {year: 2019, day: 1, main: main}
+    Day {year: 2019, day: 1, main}
 }
 
 fn fuel_req1(mass: &i32) -> i32 {
@@ -27,15 +27,16 @@ pub fn solve(input: &str) -> (i32, i32) {
         .map(|s| s.trim().parse().unwrap())
         .collect();
 
-    let part1: i32 = numbers.iter().map(|n| fuel_req1(n)).sum();
-    let part2: i32 = numbers.iter().map(|n| fuel_req2(n)).sum();
+    let part1: i32 = numbers.iter().map(fuel_req1).sum();
+    let part2: i32 = numbers.iter().map(fuel_req2).sum();
     return (part1, part2);
 }
 
 pub fn main() {
     let (part1, part2) = solve(INPUT);
 
-    println!("Problem {}:", file!());
+    let file = file!();
+    println!("Problem {file}:");
     println!("    part 1: {part1}");
     println!("    part 2: {part2}");
 }

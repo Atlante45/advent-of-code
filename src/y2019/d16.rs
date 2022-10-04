@@ -1,8 +1,8 @@
 use crate::util::Day;
 
-const INPUT: &'static str = include_str!("input/d16.in");
+const INPUT: &str = include_str!("input/d16.in");
 inventory::submit! {
-    Day {year: 2019, day: 16, main: main}
+    Day {year: 2019, day: 16, main}
 }
 
 fn compute_sum(input: &Vec<i32>, index: usize) -> i32 {
@@ -28,8 +28,8 @@ fn do_phase(input: Vec<i32>) -> Vec<i32> {
     (0..size).map(|i| compute_sum(&input, i)).collect()
 }
 
-fn part1(signal: &Vec<i32>) -> i32 {
-    let mut signal = signal.clone();
+fn part1(signal: &[i32]) -> i32 {
+    let mut signal = signal.to_owned();
     for _ in 0..100 {
         signal = do_phase(signal);
     }
@@ -85,7 +85,8 @@ pub fn solve(input: &str) -> (i32, i32) {
 pub fn main() {
     let (part1, part2) = solve(INPUT);
 
-    println!("Problem {}:", file!());
+    let file = file!();
+    println!("Problem {file}:");
     println!("    part 1: {part1}");
     println!("    part 2: {part2}");
 }

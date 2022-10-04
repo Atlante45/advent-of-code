@@ -10,7 +10,7 @@ pub struct Day {
 
 impl Day {
     // pub fn new(year: u32, day: u32, main: fn()) -> Day {
-    //     Day { year: year, day: day, main: main }
+    //     Day { year: year, day: day, main }
     // }
 }
 inventory::collect!(Day);

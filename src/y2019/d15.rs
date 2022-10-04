@@ -4,9 +4,9 @@ use std::collections::HashSet;
 use super::intcode::IntCode;
 use crate::util::Day;
 
-const INPUT: &'static str = include_str!("input/d15.in");
+const INPUT: &str = include_str!("input/d15.in");
 inventory::submit! {
-    Day {year: 2019, day: 15, main: main}
+    Day {year: 2019, day: 15, main}
 }
 
 enum M {}
@@ -72,7 +72,7 @@ fn step_to_oxygen(
     return None;
 }
 
-fn traverse(intcode: &mut IntCode, set: &mut HashSet<Point>, cur: &Point, depth: i32) -> i32 {
+fn traverse(intcode: &mut IntCode, set: &mut HashSet<Point>, cur: &Point) -> i32 {
     let mut max = 0;
 
     for dir in 1..=4 {
@@ -89,7 +89,7 @@ fn traverse(intcode: &mut IntCode, set: &mut HashSet<Point>, cur: &Point, depth:
             Some(0) => (),
             Some(1) => {
                 set.insert(tgt);
-                let depth = traverse(intcode, set, &tgt, depth + 1);
+                let depth = traverse(intcode, set, &tgt);
                 max = max.max(depth);
                 execute_move(intcode, inverse(dir));
             }
@@ -111,7 +111,7 @@ pub fn solve(input: &str) -> (i32, i32) {
     let distance = step_to_oxygen(&mut intcode, &mut set, &cur, 0);
 
     set = HashSet::new();
-    let depth = traverse(&mut intcode, &mut set, &cur, 0);
+    let depth = traverse(&mut intcode, &mut set, &cur);
 
     return (distance.unwrap(), depth - 1);
 }
@@ -119,7 +119,8 @@ pub fn solve(input: &str) -> (i32, i32) {
 pub fn main() {
     let (part1, part2) = solve(INPUT);
 
-    println!("Problem {}:", file!());
+    let file = file!();
+    println!("Problem {file}:");
     println!("    part 1: {part1}");
     println!("    part 2: {part2}");
 }

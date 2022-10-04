@@ -4,9 +4,9 @@ use itertools::Itertools;
 use super::intcode::IntCode;
 use crate::util::Day;
 
-const INPUT: &'static str = include_str!("input/d17.in");
+const INPUT: &str = include_str!("input/d17.in");
 inventory::submit! {
-    Day {year: 2019, day: 17, main: main}
+    Day {year: 2019, day: 17, main}
 }
 
 enum M {}
@@ -88,7 +88,7 @@ fn compute_path(view: &Vec<&str>) -> Vec<String> {
     return path;
 }
 
-fn find_start(path: &Vec<String>) -> usize {
+fn find_start(path: &[String]) -> usize {
     path.iter()
         .enumerate()
         .find_or_first(|(_, s)| !["A", "B", "C"].contains(&s.as_str()))
@@ -96,7 +96,7 @@ fn find_start(path: &Vec<String>) -> usize {
         .0
 }
 
-fn is_valid(path: &Vec<String>, start: usize, length: usize) -> bool {
+fn is_valid(path: &[String], start: usize, length: usize) -> bool {
     path.iter()
         .skip(start)
         .take(length)
@@ -130,10 +130,10 @@ fn replace(path: &Vec<String>, start: usize, length: usize, rep: String) -> Vec<
 }
 
 fn extract_func(path: &mut Vec<String>, rep: &str) -> String {
-    let start = find_start(&path);
+    let start = find_start(path);
     let mut length = 1;
 
-    while is_valid(&path, start, length + 1) && is_repeat(&path, start, length + 1) {
+    while is_valid(path, start, length + 1) && is_repeat(path, start, length + 1) {
         length += 1;
     }
 
@@ -193,7 +193,8 @@ pub fn solve(input: &str) -> (i32, i32) {
 pub fn main() {
     let (part1, part2) = solve(INPUT);
 
-    println!("Problem {}:", file!());
+    let file = file!();
+    println!("Problem {file}:");
     println!("    part 1: {part1}");
     println!("    part 2: {part2}");
 }

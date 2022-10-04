@@ -5,12 +5,12 @@ use itertools::Itertools;
 
 use super::intcode::{IntCode, Program};
 
-const INPUT: &'static str = include_str!("input/d07.in");
+const INPUT: &str = include_str!("input/d07.in");
 inventory::submit! {
-    Day {year: 2019, day: 7, main: main}
+    Day {year: 2019, day: 7, main}
 }
 
-fn run_sequence(program: &Program, sequence: &Vec<i32>) -> i32 {
+fn run_sequence(program: &Program, sequence: &[i32]) -> i32 {
     let mut signal = 0;
 
     let mut amps: [IntCode; 5] = [
@@ -28,8 +28,7 @@ fn run_sequence(program: &Program, sequence: &Vec<i32>) -> i32 {
     }
 
     while !amps[4].halted() {
-        for i in 0..5 {
-            let intcode = &mut amps[i];
+        for intcode in &mut amps {
             intcode.set_inputs(vec![signal]);
             intcode.run();
             let outputs = intcode.get_outputs();
@@ -63,7 +62,8 @@ pub fn solve(input: &str) -> (i32, i32) {
 pub fn main() {
     let (part1, part2) = solve(INPUT);
 
-    println!("Problem {}:", file!());
+    let file = file!();
+    println!("Problem {file}:");
     println!("    part 1: {part1}");
     println!("    part 2: {part2}");
 }
