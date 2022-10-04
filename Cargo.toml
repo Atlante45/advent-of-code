@@ -1,0 +1,21 @@
+[package]
+name = "aoc"
+version = "0.1.0"
+authors = ["Clément Brisset <aoc@brisset.com>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+structopt = "0.3.25"
+automod = "1.0.2"
+# termion = "1.5.6"
+num_enum = "0.5.4"
+inventory = "0.3.1"
+euclid = "0.22.6"
+memoize = "0.3.1"
+itertools = "0.10.3"
+num = "0.4.0"
+lazy_static = "1.4.0"
+regex = "1.5.4"
+rand = "0.8.5"

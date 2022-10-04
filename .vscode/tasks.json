@@ -1,0 +1,18 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "rust: cargo run",
+      "type": "cargo",
+      "problemMatcher": ["$rustc"],
+      "group": "build",
+      "command": "run",
+      "options": {
+        "shell": {
+          "executable": "C:\\WINDOWS\\System32\\wsl.exe",
+          "args": ["-d", "Legacy"]
+        }
+      }
+    }
+  ]
+}
