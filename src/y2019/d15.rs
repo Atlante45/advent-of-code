@@ -69,7 +69,7 @@ fn step_to_oxygen(
         };
     }
 
-    return None;
+    None
 }
 
 fn traverse(intcode: &mut IntCode, set: &mut HashSet<Point>, cur: &Point) -> i32 {
@@ -98,7 +98,7 @@ fn traverse(intcode: &mut IntCode, set: &mut HashSet<Point>, cur: &Point) -> i32
         };
     }
 
-    return max + 1;
+    max + 1
 }
 
 pub fn solve(input: &str) -> (i32, i32) {
@@ -113,7 +113,7 @@ pub fn solve(input: &str) -> (i32, i32) {
     set = HashSet::new();
     let depth = traverse(&mut intcode, &mut set, &cur);
 
-    return (distance.unwrap(), depth - 1);
+    (distance.unwrap(), depth - 1)
 }
 
 pub fn main() {

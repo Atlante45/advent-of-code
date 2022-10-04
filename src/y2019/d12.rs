@@ -69,7 +69,7 @@ pub fn solve(input: &str) -> (i32, i64) {
 
     let part2 = lcm(cycles[0], lcm(cycles[1], cycles[2]));
 
-    return (part1, part2);
+    (part1, part2)
 }
 
 pub fn main() {

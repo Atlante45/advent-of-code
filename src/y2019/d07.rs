@@ -38,7 +38,7 @@ fn run_sequence(program: &Program, sequence: &[i32]) -> i32 {
 
     assert!(amps.iter().all(|amp| amp.halted()));
 
-    return signal as i32;
+    signal as i32
 }
 
 pub fn solve(input: &str) -> (i32, i32) {
@@ -56,7 +56,7 @@ pub fn solve(input: &str) -> (i32, i32) {
         part2 = cmp::max(part2, output);
     }
 
-    return (part1, part2);
+    (part1, part2)
 }
 
 pub fn main() {

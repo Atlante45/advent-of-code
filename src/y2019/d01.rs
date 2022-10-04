@@ -6,7 +6,7 @@ inventory::submit! {
 }
 
 fn fuel_req1(mass: &i32) -> i32 {
-    return mass / 3 - 2;
+    mass / 3 - 2
 }
 
 fn fuel_req2(mass: &i32) -> i32 {
@@ -17,7 +17,7 @@ fn fuel_req2(mass: &i32) -> i32 {
         fuel += new_fuel;
         new_fuel = new_fuel / 3 - 2
     }
-    return fuel;
+    fuel
 }
 
 pub fn solve(input: &str) -> (i32, i32) {
@@ -29,7 +29,7 @@ pub fn solve(input: &str) -> (i32, i32) {
 
     let part1: i32 = numbers.iter().map(fuel_req1).sum();
     let part2: i32 = numbers.iter().map(fuel_req2).sum();
-    return (part1, part2);
+    (part1, part2)
 }
 
 pub fn main() {

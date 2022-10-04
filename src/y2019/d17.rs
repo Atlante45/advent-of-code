@@ -41,7 +41,7 @@ fn compute_alignment(view: &Vec<&str>) -> i32 {
         }
     }
 
-    return alignment;
+    alignment
 }
 
 fn on_path(view: &Vec<&str>, point: Point) -> bool {
@@ -85,7 +85,7 @@ fn compute_path(view: &Vec<&str>) -> Vec<String> {
         }
     }
 
-    return path;
+    path
 }
 
 fn find_start(path: &[String]) -> usize {
@@ -112,7 +112,7 @@ fn is_repeat(path: &Vec<String>, start: usize, length: usize) -> bool {
             return true;
         }
     }
-    return false;
+    false
 }
 
 fn replace(path: &Vec<String>, start: usize, length: usize, rep: String) -> Vec<String> {
@@ -126,7 +126,7 @@ fn replace(path: &Vec<String>, start: usize, length: usize, rep: String) -> Vec<
             res.splice(i..i + length, vec![&rep].into_iter().cloned());
         }
     }
-    return res;
+    res
 }
 
 fn extract_func(path: &mut Vec<String>, rep: &str) -> String {
@@ -140,7 +140,7 @@ fn extract_func(path: &mut Vec<String>, rep: &str) -> String {
     let func = path[start..start + length].join(",") + "\n";
     *path = replace(path, start, length, rep.to_string());
 
-    return func;
+    func
 }
 
 fn compute_routines(path: Vec<String>) -> String {
@@ -152,7 +152,7 @@ fn compute_routines(path: Vec<String>) -> String {
 
     let routine = path.join(",") + "\n";
 
-    return routine + &a + &b + &c;
+    routine + &a + &b + &c
 }
 
 pub fn solve(input: &str) -> (i32, i32) {
@@ -187,7 +187,7 @@ pub fn solve(input: &str) -> (i32, i32) {
     intcode.run();
     let dust = intcode.get_outputs().last().unwrap();
 
-    return (alignment, *dust as i32);
+    (alignment, *dust as i32)
 }
 
 pub fn main() {

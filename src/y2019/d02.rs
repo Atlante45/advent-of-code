@@ -26,7 +26,7 @@ pub fn solve(input: &str) -> (i32, i32) {
         }
     }
 
-    return (0, 0);
+    (0, 0)
 }
 
 pub fn main() {

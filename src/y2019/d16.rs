@@ -20,7 +20,7 @@ fn compute_sum(input: &Vec<i32>, index: usize) -> i32 {
             i += 4 * rounds;
         }
     }
-    return (sum % 10).abs();
+    (sum % 10).abs()
 }
 
 fn do_phase(input: Vec<i32>) -> Vec<i32> {
@@ -79,7 +79,7 @@ pub fn solve(input: &str) -> (i32, i32) {
 
     let part2 = part2(&signal);
 
-    return (part1, part2);
+    (part1, part2)
 }
 
 pub fn main() {

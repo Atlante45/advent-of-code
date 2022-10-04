@@ -34,7 +34,7 @@ impl IntCode {
             .split(',')
             .map(|s| s.trim().parse().unwrap())
             .collect();
-        return memory;
+        memory
     }
 
     pub fn load(program: Program) -> IntCode {
@@ -53,7 +53,7 @@ impl IntCode {
     }
 
     pub fn get_outputs(&mut self) -> &Vec<Value> {
-        return &self.outputs;
+        &self.outputs
     }
 
     pub fn clear_outputs(&mut self) {
@@ -71,14 +71,14 @@ impl IntCode {
     }
 
     pub fn halted(&self) -> bool {
-        return self.opcode() == OpCode::Halt;
+        self.opcode() == OpCode::Halt
     }
 
     fn _get(&mut self, index: usize) -> Value {
         if index >= self.memory.len() {
             self.memory.resize(index + 1, 0);
         }
-        return self.memory[index];
+        self.memory[index]
     }
 
     fn _set(&mut self, index: usize, value: Value) {
@@ -95,7 +95,7 @@ impl IntCode {
             2 => (self.relative_base + self._get(index)) as usize,
             _ => panic!("Unknown mode"),
         };
-        return self._get(index);
+        self._get(index)
     }
 
     pub fn set(&mut self, index: usize, mode: Value, value: Value) {
@@ -176,11 +176,11 @@ impl IntCode {
             Err(_) => panic!("Unknown OpCode"),
         }
 
-        return true;
+        true
     }
 
     pub fn run(&mut self) -> Value {
         while self.step() {}
-        return self.memory[0];
+        self.memory[0]
     }
 }

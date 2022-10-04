@@ -34,14 +34,14 @@ fn count(map: &Vec<Vec<char>>, x: usize, y: usize) -> i32 {
         }
     }
 
-    return set.len() as i32;
+    set.len() as i32
 }
 
 fn dcomp(a: (i32, i32), b: (i32, i32)) -> Ordering {
     if a.0.abs() + a.1.abs() > b.0.abs() + b.1.abs() {
-        return Ordering::Less;
+        Ordering::Less
     } else {
-        return Ordering::Greater;
+        Ordering::Greater
     }
 }
 
@@ -59,9 +59,9 @@ fn rcomp(a: (i32, i32), b: (i32, i32)) -> Ordering {
     let a_angle = (a.0 as f32).atan2(a.1 as f32);
     let b_angle = (b.0 as f32).atan2(b.1 as f32);
     if a_angle > b_angle {
-        return Ordering::Less;
+        Ordering::Less
     } else {
-        return Ordering::Greater;
+        Ordering::Greater
     }
 }
 
@@ -123,7 +123,7 @@ pub fn solve(input: &str) -> (i32, i32) {
 
     let part2 = order(&map, coords.0, coords.1);
 
-    return (part1, part2);
+    (part1, part2)
 }
 
 pub fn main() {

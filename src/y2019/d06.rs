@@ -13,7 +13,7 @@ fn find_path<'a>(parent_map: &'a HashMap<&str, &str>, object: &'a str) -> Vec<&'
     }
     let mut path = find_path(parent_map, parent_map[object]);
     path.push(object);
-    return path;
+    path
 }
 
 pub fn solve(input: &str) -> (i32, i32) {
@@ -49,7 +49,7 @@ pub fn solve(input: &str) -> (i32, i32) {
     }
     let part2 = (patha.len() - i + pathb.len() - i - 2) as i32;
 
-    return (part1, part2);
+    (part1, part2)
 }
 
 pub fn main() {

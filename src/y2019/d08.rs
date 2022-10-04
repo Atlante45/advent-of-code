@@ -50,7 +50,7 @@ pub fn solve(input: &str) -> (i32, String) {
     }
     let part2 = ocr(render);
 
-    return (part1, part2);
+    (part1, part2)
 }
 
 pub fn main() {
